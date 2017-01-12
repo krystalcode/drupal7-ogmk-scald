@@ -3,6 +3,11 @@ description = A module that provides media management functionality via SCALD in
 core = 7.x
 package = Commerce Marketplace Features
 version = 7.x-0.1-dev
+
+; OGMK dependencies.
+dependencies[] = ogmk_shops
+
+; External dependencies.
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
