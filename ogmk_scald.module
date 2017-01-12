@@ -35,3 +35,74 @@ function ogmk_scald_form_scald_atom_add_form_options_alter(&$form, &$form_state,
   $form['buttons']['return']['#value'] = '<span class="fa fa-send"></span> ' . t('Submit');
   $form['buttons']['cancel']['#value'] = '<span class="fa fa-close"></span> ' . $form['buttons']['cancel']['#value'];
 }
+
+/**
+ * Implements hook_scald_wysiwyg_context_list_alter().
+ */
+function ogmk_scald_scald_wysiwyg_context_list_alter(&$contexts) {
+  $contexts = array(
+    'image' => array(
+      'sdl_editor_representation' => t('Default (Large)'),
+      'image_editor_xs'           => t('Extra Small'),
+      'image_editor_sm'           => t('Small'),
+      'image_editor_md'           => t('Medium'),
+      'image_editor_lg'           => t('Large'),
+      'scald_extra_single_line'   => t('Single Line Representation'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_scald_contexts().
+ *
+ * It defines a context for each image style that should be allowed for embedded
+ * images in the rich text editor.
+ */
+function ogmk_scald_scald_contexts() {
+  $contexts = array();
+
+  // Get the image styles to generate contexts for.
+  $editor_contexts = array(
+    'xs' => 'Extra Small',
+    'sm' => 'Small',
+    'md' => 'Medium',
+    'lg' => 'Large',
+  );
+
+  // Define a context for each image style.
+  foreach ($editor_contexts as $key => $name) {
+    $contexts['image_editor_' . $key] = _scald_extra_context_array(array('label' => $name));
+  }
+
+  return $contexts;
+}
+
+/**
+ * Implements hook_scald_render().
+ *
+ * Render the image only without any metadata (authors, tags) when the context
+ * starts with image_editor_ e.g. image_editor_sm.
+ *
+ * @Issue(
+ *   "Allow to choose whether to render metadata or not",
+ *   type="feature",
+ *   priority="low"
+ * )
+ */
+function ogmk_scald_scald_render($atom, $context, $options) {
+  // Check if a function for rendering the requested context exists, and use
+  // it if so.
+  $func = '_ogmk_scald_scald_render__' . $context;
+  if (function_exists($func)) {
+    return $func($atom, $context, $options);
+  }
+
+  // If there is no function for rendering the requested context, the context
+  // must be one of the image styles used by the rich text editor. If not,
+  // nothing more to do here.
+  if (strpos($context, 'image_editor_') !== 0) {
+    return;
+  }
+
+  return $atom->rendered->player;
+}
