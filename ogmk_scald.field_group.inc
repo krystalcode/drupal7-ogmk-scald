@@ -24,6 +24,7 @@ function ogmk_scald_field_group_info() {
     'weight' => '0',
     'children' => array(
       0 => 'scald_thumbnail',
+      1 => 'scald_description',
     ),
     'format_type' => 'bootstrap_panel',
     'format_settings' => array(

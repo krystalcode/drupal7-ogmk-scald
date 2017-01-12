@@ -56,6 +56,82 @@ function ogmk_scald_field_default_field_instances() {
     ),
   );
 
+  // Exported field_instance: 'scald_atom-image-scald_description'.
+  $field_instances['scald_atom-image-scald_description'] = array(
+    'bundle' => 'image',
+    'default_value' => NULL,
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(),
+        'type' => 'text_default',
+        'weight' => 6,
+      ),
+      'scald_bootstrap_library_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 2,
+      ),
+      'scald_bootstrap_media_object' => array(
+        'label' => 'above',
+        'module' => 'text',
+        'settings' => array(
+          'trim_length' => 300,
+        ),
+        'type' => 'text_trimmed',
+        'weight' => 1,
+      ),
+    ),
+    'entity_type' => 'scald_atom',
+    'field_name' => 'scald_description',
+    'label' => 'Description',
+    'required' => 0,
+    'settings' => array(
+      'better_formats' => array(
+        'allowed_formats' => array(
+          'ogmk_basic_html' => 'ogmk_basic_html',
+          'ogmk_plain_html' => 'ogmk_plain_html',
+          'plain_text' => 'plain_text',
+        ),
+        'allowed_formats_toggle' => 1,
+        'default_order_toggle' => 0,
+        'default_order_wrapper' => array(
+          'formats' => array(
+            'ogmk_basic_html' => array(
+              'weight' => 0,
+            ),
+            'ogmk_plain_html' => array(
+              'weight' => 1,
+            ),
+            'plain_text' => array(
+              'weight' => 2,
+            ),
+          ),
+        ),
+      ),
+      'context' => 'debug',
+      'context_default' => 'sdl_editor_representation',
+      'dnd_enabled' => 0,
+      'entity_translation_sync' => FALSE,
+      'mee_enabled' => 0,
+      'text_processing' => 1,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 1,
+      'module' => 'text',
+      'settings' => array(
+        'rows' => 5,
+      ),
+      'type' => 'text_textarea',
+      'weight' => 3,
+    ),
+  );
+
   // Exported field_instance: 'scald_atom-image-scald_tags'.
   $field_instances['scald_atom-image-scald_tags'] = array(
     'bundle' => 'image',
@@ -200,6 +276,7 @@ function ogmk_scald_field_default_field_instances() {
   // Translatables
   // Included for use with string extractors like potx.
   t('Authors');
+  t('Description');
   t('Homepage of the Author');
   t('Image');
   t('Labels');
