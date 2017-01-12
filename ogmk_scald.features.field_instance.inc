@@ -10,6 +10,78 @@
 function ogmk_scald_field_default_field_instances() {
   $field_instances = array();
 
+  // Exported field_instance: 'scald_atom-image-ogmk_shops_ref'.
+  $field_instances['scald_atom-image-ogmk_shops_ref'] = array(
+    'bundle' => 'image',
+    'default_value' => NULL,
+    'default_value_function' => 'entityreference_prepopulate_field_default_value',
+    'deleted' => 0,
+    'description' => '',
+    'display' => array(
+      'default' => array(
+        'label' => 'above',
+        'module' => 'entityreference',
+        'settings' => array(
+          'link' => FALSE,
+        ),
+        'type' => 'entityreference_label',
+        'weight' => 7,
+      ),
+      'scald_bootstrap_library_item' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+      'scald_bootstrap_media_object' => array(
+        'label' => 'above',
+        'settings' => array(),
+        'type' => 'hidden',
+        'weight' => 0,
+      ),
+    ),
+    'entity_type' => 'scald_atom',
+    'field_name' => 'ogmk_shops_ref',
+    'label' => 'Shops',
+    'required' => 0,
+    'settings' => array(
+      'behaviors' => array(
+        'og_widget' => array(
+          'access_override' => 0,
+          'admin' => array(
+            'widget_type' => 'entityreference_autocomplete',
+          ),
+          'default' => array(
+            'widget_type' => 'options_select',
+          ),
+          'status' => TRUE,
+        ),
+        'prepopulate' => array(
+          'action' => 'none',
+          'action_on_edit' => 0,
+          'fallback' => 'none',
+          'providers' => array(
+            'og_context' => 0,
+            'url' => 1,
+          ),
+          'skip_perm' => 0,
+          'status' => 1,
+        ),
+      ),
+      'commerce_user_profile_pane' => 0,
+      'commerce_user_profile_pane_required' => 0,
+      'entity_translation_sync' => FALSE,
+      'user_register_form' => FALSE,
+    ),
+    'widget' => array(
+      'active' => 0,
+      'module' => 'og',
+      'settings' => array(),
+      'type' => 'og_complex',
+      'weight' => 5,
+    ),
+  );
+
   // Exported field_instance: 'scald_atom-image-scald_authors'.
   $field_instances['scald_atom-image-scald_authors'] = array(
     'bundle' => 'image',
@@ -288,6 +360,7 @@ function ogmk_scald_field_default_field_instances() {
   t('Homepage of the Author');
   t('Image');
   t('Labels');
+  t('Shops');
   t('URL');
 
   return $field_instances;
