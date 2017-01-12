@@ -5,3 +5,33 @@
  */
 
 include_once 'ogmk_scald.features.inc';
+
+
+/**
+ * Hooks.
+ */
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ogmk_scald_form_scald_atom_add_form_add_alter(&$form, &$form_state, $form_id) {
+  // Remove ctools trail (Source >> Add >> Options).
+  unset($form['ctools_trail']);
+
+  // Improve buttons styles.
+  $form['buttons']['cancel']['#value'] =  '<span class="fa fa-close"></span> ' . $form['buttons']['cancel']['#value'];
+  $form['buttons']['next']['#value'] = $form['buttons']['next']['#value'] . ' <span class="fa fa-arrow-right"></span>';
+  $form['buttons']['next']['#attributes']['class'] = array('btn-info');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ogmk_scald_form_scald_atom_add_form_options_alter(&$form, &$form_state, $form_id) {
+  // Remove ctools trail (Source >> Add >> Options).
+  unset($form['ctools_trail']);
+
+  // Improve buttons styles.
+  $form['buttons']['return']['#value'] = '<span class="fa fa-send"></span> ' . t('Submit');
+  $form['buttons']['cancel']['#value'] = '<span class="fa fa-close"></span> ' . $form['buttons']['cancel']['#value'];
+}
