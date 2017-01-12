@@ -41,5 +41,21 @@ function ogmk_scald_image_default_styles() {
     ),
   );
 
+  // Exported image style: 250.
+  $styles[250] = array(
+    'label' => 250,
+    'effects' => array(
+      15 => array(
+        'name' => 'image_scale',
+        'data' => array(
+          'width' => 250,
+          'height' => '',
+          'upscale' => 0,
+        ),
+        'weight' => 1,
+      ),
+    ),
+  );
+
   return $styles;
 }
