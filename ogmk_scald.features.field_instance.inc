@@ -124,7 +124,7 @@ function ogmk_scald_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => -3,
+      'weight' => 6,
     ),
   );
 
@@ -247,7 +247,7 @@ function ogmk_scald_field_default_field_instances() {
         'size' => 60,
       ),
       'type' => 'taxonomy_autocomplete',
-      'weight' => -2,
+      'weight' => 7,
     ),
   );
 
@@ -312,7 +312,7 @@ function ogmk_scald_field_default_field_instances() {
         'progress_indicator' => 'throbber',
       ),
       'type' => 'image_image',
-      'weight' => -4,
+      'weight' => 2,
     ),
   );
 
