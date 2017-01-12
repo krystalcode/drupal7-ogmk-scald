@@ -20,7 +20,7 @@ function ogmk_scald_field_group_info() {
   $field_group->mode = 'default';
   $field_group->parent_name = '';
   $field_group->data = array(
-    'label' => 'Content',
+    'label' => 'Details',
     'weight' => '0',
     'children' => array(
       0 => 'scald_thumbnail',
@@ -28,7 +28,7 @@ function ogmk_scald_field_group_info() {
     ),
     'format_type' => 'bootstrap_panel',
     'format_settings' => array(
-      'label' => 'Content',
+      'label' => 'Details',
       'instance_settings' => array(
         'show_heading' => '1',
         'heading_position' => '0',
