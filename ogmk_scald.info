@@ -8,6 +8,7 @@ version = 7.x-0.1-dev
 dependencies[] = ogmk_shops
 
 ; External dependencies.
+dependencies[] = atom_reference
 dependencies[] = ctools
 dependencies[] = entityreference
 dependencies[] = features
@@ -25,6 +26,7 @@ features[ctools][] = field_group:field_group:1
 features[ctools][] = scald:context_config:1
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
+features[field_base][] = ogmk_atom_ref
 features[field_base][] = scald_author_url
 features[field_base][] = scald_authors
 features[field_base][] = scald_description
