@@ -27,6 +27,7 @@ features[ctools][] = scald:context_config:1
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:2
 features[field_base][] = ogmk_atom_ref
+features[field_base][] = ogmk_atoms_ref
 features[field_base][] = scald_author_url
 features[field_base][] = scald_authors
 features[field_base][] = scald_description

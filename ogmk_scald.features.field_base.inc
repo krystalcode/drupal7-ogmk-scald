@@ -31,6 +31,27 @@ function ogmk_scald_field_default_field_bases() {
     'type' => 'atom_reference',
   );
 
+  // Exported field_base: 'ogmk_atoms_ref'.
+  $field_bases['ogmk_atoms_ref'] = array(
+    'active' => 1,
+    'cardinality' => -1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'ogmk_atoms_ref',
+    'indexes' => array(
+      'sid' => array(
+        0 => 'sid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'atom_reference',
+    'settings' => array(
+      'entity_translation_sync' => FALSE,
+    ),
+    'translatable' => 0,
+    'type' => 'atom_reference',
+  );
+
   // Exported field_base: 'scald_author_url'.
   $field_bases['scald_author_url'] = array(
     'active' => 1,
