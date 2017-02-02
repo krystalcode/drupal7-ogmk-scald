@@ -68,8 +68,6 @@ function ogmk_scald_field_default_field_instances() {
           'status' => 1,
         ),
       ),
-      'commerce_user_profile_pane' => 0,
-      'commerce_user_profile_pane_required' => 0,
       'entity_translation_sync' => FALSE,
       'user_register_form' => FALSE,
     ),
