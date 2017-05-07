@@ -12,6 +12,16 @@ include_once 'ogmk_scald.features.inc';
  */
 
 /**
+ * Implements hook_entity_info_alter().
+ */
+function ogmk_scald_entity_info_alter(&$entity_info){
+  $entity_info['scald_atom']['view modes']['ogmk_scald_basic_info'] = array(
+    'label' => t('Basic Info'),
+    'custom settings' => FALSE,
+  );
+}
+
+/**
  * Implements hook_form_FORM_ID_alter().
  */
 function ogmk_scald_form_scald_atom_add_form_add_alter(&$form, &$form_state, $form_id) {
@@ -74,6 +84,17 @@ function ogmk_scald_scald_contexts() {
     $contexts['image_editor_' . $key] = _scald_extra_context_array(array('label' => $name));
   }
 
+  // Add a context for rendering the title, description, and image/video of
+  // atoms.
+  $contexts['ogmk_scald_basic_info'] = array(
+    'title'           => t('Basic Info'),
+    'description'     => t('Atom with basic info (Title and Description).'),
+    'render_language' => 'XHTML',
+    'parseable'       => TRUE,
+    'hidden'          => FALSE,
+    'formats'         => array(),
+  );
+
   return $contexts;
 }
 
@@ -105,4 +126,38 @@ function ogmk_scald_scald_render($atom, $context, $options) {
   }
 
   return $atom->rendered->player;
+}
+
+
+/**
+ * Hook callbacks.
+ */
+
+/**
+ * Implements hook_scald_render() via ogmk_scald_scald_render().
+ *
+ * Displays the title, the description, and the image or video of an atom
+ * according to the settings defined in the corresponding view mode.
+ *
+ * @Issue(
+ *   "Test the Basic Info scald context with image atoms"
+ *   type="bug"
+ *   priority="normal"
+ * )
+ */
+function _ogmk_scald_scald_render__ogmk_scald_basic_info($atom, $context, $options) {
+  // Get the description respecting the settings defined in the
+  // 'ogmk_scald_basic_info' view mode.
+  $description_items = field_get_items('scald_atom', $atom, 'scald_description');
+  if ($description_items) {
+    $description_render_array = field_view_value('scald_atom', $atom, 'scald_description', $description_items[0], 'ogmk_scald_basic_info');
+  }
+
+  $html = '<div class="atom-basic-info"><h4 class="atom-title">' . $atom->rendered->title . '</h4>' .
+    '<div class="atom-description">' . render($description_render_array) . '</div>' .
+    $atom->rendered->player .
+    '</div>'
+  ;
+
+  return $html;
 }
