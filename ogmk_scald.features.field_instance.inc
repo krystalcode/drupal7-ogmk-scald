@@ -681,7 +681,7 @@ function ogmk_scald_field_default_field_instances() {
     'settings' => array(
       'description_field' => 0,
       'entity_translation_sync' => FALSE,
-      'file_directory' => 'atoms/video',
+      'file_directory' => 'scald_atom/video/scald_video',
       'file_extensions' => 'webm mp4 ogv',
       'max_filesize' => '',
       'user_register_form' => FALSE,
