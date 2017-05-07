@@ -183,5 +183,35 @@ function ogmk_scald_field_default_field_bases() {
     'type' => 'image',
   );
 
+  // Exported field_base: 'scald_video'.
+  $field_bases['scald_video'] = array(
+    'active' => 1,
+    'cardinality' => 1,
+    'deleted' => 0,
+    'entity_types' => array(),
+    'field_name' => 'scald_video',
+    'indexes' => array(
+      'fid' => array(
+        0 => 'fid',
+      ),
+    ),
+    'locked' => 0,
+    'module' => 'file',
+    'settings' => array(
+      'display_default' => 0,
+      'display_field' => 0,
+      'entity_translation_sync' => array(
+        0 => 'fid',
+      ),
+      'storage_class' => array(
+        'class_id' => 1,
+        'current_class_id' => 1,
+      ),
+      'uri_scheme' => 'storage-scald-video',
+    ),
+    'translatable' => 0,
+    'type' => 'file',
+  );
+
   return $field_bases;
 }

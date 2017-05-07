@@ -35,6 +35,13 @@ function ogmk_scald_user_default_permissions() {
     'module' => 'scald',
   );
 
+  // Exported permission: 'create atom of video type'.
+  $permissions['create atom of video type'] = array(
+    'name' => 'create atom of video type',
+    'roles' => array(),
+    'module' => 'scald',
+  );
+
   // Exported permission: 'delete any atom'.
   $permissions['delete any atom'] = array(
     'name' => 'delete any atom',
