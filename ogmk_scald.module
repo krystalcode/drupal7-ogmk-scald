@@ -155,7 +155,7 @@ function _ogmk_scald_scald_render__ogmk_scald_basic_info($atom, $context, $optio
 
   $html = '<div class="atom-basic-info"><h4 class="atom-title">' . $atom->rendered->title . '</h4>' .
     '<div class="atom-description">' . render($description_render_array) . '</div>' .
-    $atom->rendered->player .
+    render($atom->rendered->player) .
     '</div>'
   ;
 
